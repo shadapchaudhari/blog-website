@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Blog</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>Add Blog</h2>
+
+<form id="blogForm">
+    <input type="text" id="title" placeholder="Title"><br>
+    <textarea id="content" placeholder="Content"></textarea><br>
+    <button type="submit">Submit</button>
+</form>
+<button class="back-btn"><a href="dashboard.html">Back to Dashboard</a></button>
+
+<script>
+const token = localStorage.getItem('token');
+
+document.getElementById('blogForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    await fetch('http://localhost:3001/api/blogs', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token
+        },
+        body: JSON.stringify({
+            title: title.value,
+            content: content.value
+        })
+    });
+
+    alert("Blog Added!");
+    window.location.href = "dashboard.html";
+
+   
+});
+</script>
+
+</body>
+</html> 

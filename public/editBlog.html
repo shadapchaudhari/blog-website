@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Blog</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>Edit Blog</h2>
+
+<form id="editForm">
+    <input type="text" id="title"><br>
+    <textarea id="content"></textarea><br>
+    <button type="submit">Update</button>
+</form>
+<button class="back-btn"><a href="dashboard.html">Back to Dashboard</a></button>
+<script>
+const token = localStorage.getItem('token');
+const id = localStorage.getItem('editId');
+
+// get blog data
+async function getBlog() {
+    const res = await fetch('http://localhost:3001/api/blogs');
+    const blogs = await res.json();
+
+    const blog = blogs.find(b => b._id === id);
+
+    title.value = blog.title;
+    content.value = blog.content;
+}
+
+// update blog
+document.getElementById('editForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    await fetch(`http://localhost:3001/api/blogs/${id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token
+        },
+        body: JSON.stringify({
+            title: title.value,
+            content: content.value
+        })
+    });
+
+    alert("Updated!");
+    window.location.href = "dashboard.html";
+});
+
+getBlog();
+</script>
+
+</body>
+</html>
