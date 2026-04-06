@@ -12,7 +12,6 @@ exports.signup = async (req, res) => {
         if (userExists) {
             return res.status(400).json({ msg: "User already exists" });
         }
-
         // hash password
         const hashedPassword = await bcrypt.hash(password, 10);
 
@@ -29,7 +28,6 @@ exports.signup = async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 };
-
 // 🔹 LOGIN
 exports.login = async (req, res) => {
     try {
@@ -40,7 +38,6 @@ exports.login = async (req, res) => {
         if (!user) {
             return res.status(400).json({ msg: "User not found" });
         }
-
         // compare password
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
