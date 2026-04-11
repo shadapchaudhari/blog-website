@@ -22,7 +22,7 @@ app.use('/api/blogs', blogRoutes);
 
 // test route
 app.get('/', (req, res) => {
-    res.send('Blogging API Running ');
+    res.send('/public');
 });
 
 const PORT = process.env.PORT || 3001;
