@@ -41,7 +41,7 @@
 
         // fetch blogs
         async function getBlogs() {
-            const res = await fetch('http://localhost:3001/api/blogs');
+            const res = await fetch('https://blog-website-1-lczc.onrender.com/api/blogs');
             const data = await res.json();
 
             const container = document.getElementById('blogs');
@@ -74,7 +74,7 @@
 
         // delete blog
         async function deleteBlog(id) {
-            await fetch(`http://localhost:3001/api/blogs/${id}`, {
+            await fetch(`https://blog-website-1-lczc.onrender.com/api/blogs/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Authorization': 'Bearer ' + token

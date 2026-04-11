@@ -20,7 +20,7 @@ const id = localStorage.getItem('editId');
 
 // get blog data
 async function getBlog() {
-    const res = await fetch('http://localhost:3001/api/blogs');
+    const res = await fetch('https://blog-website-1-lczc.onrender.com/api/blogs');
     const blogs = await res.json();
 
     const blog = blogs.find(b => b._id === id);
@@ -33,7 +33,7 @@ async function getBlog() {
 document.getElementById('editForm').addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    await fetch(`http://localhost:3001/api/blogs/${id}`, {
+    await fetch(`https://blog-website-1-lczc.onrender.com/api/blogs/${id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',

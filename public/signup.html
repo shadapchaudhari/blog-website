@@ -28,7 +28,7 @@ document.getElementById('signupForm').addEventListener('submit', async (e) => {
     const password = document.getElementById('password').value;
 
     try {
-        const res = await fetch('http://localhost:3001/api/auth/signup', { // 🔥 fixed port
+        const res = await fetch('https://blog-website-1-lczc.onrender.com/api/auth/signup', { // 🔥 fixed port
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ name, email, password })
