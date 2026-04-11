@@ -18,14 +18,14 @@ h2 {
     margin-bottom: 20px;
 }
 
-
 /* Form Styling */
 form {
-    width: 300px;
+    width: 320px;
+    max-width: 90%;
     margin: auto;
     background: #fff;
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
@@ -45,8 +45,9 @@ button {
     border: none;
     background: #007bff;
     color: white;
-    border-radius: 5px;
+    border-radius: 6px;
     cursor: pointer;
+    transition: 0.3s;
 }
 
 button:hover {
@@ -63,12 +64,13 @@ button:hover {
     margin: 5px;
 }
 
-/* Blog Cards */
+/* Blog Container */
 #blogs {
     max-width: 700px;
     margin: auto;
 }
 
+/* Blog Cards */
 .blog-card {
     background: #fff;
     padding: 15px;
@@ -91,22 +93,33 @@ button:hover {
     color: gray;
 }
 
-/* Buttons inside blog */
+/* Blog Action Buttons */
 .blog-actions button {
     margin-right: 5px;
+    margin-top: 5px;
 }
 
-/* Back Button */
+/* 🔥 Updated Back Button */
 .back-btn {
     display: block;
-    margin: 10px auto;
-    background: #6c757d;
+    margin: 15px auto;
+    background: #28a745; /* green */
+    width: fit-content;
+    padding: 10px 20px;
+    text-align: center;
+    border-radius: 6px;
+}
+
+.back-btn a {
+    color: white;
+    text-decoration: none;
 }
 
 .back-btn:hover {
-    background: #444;
+    background: #218838;
 }
 
+/* Form Text */
 form p {
     font-size: 14px;
 }
@@ -118,4 +131,72 @@ form a {
 
 form a:hover {
     text-decoration: underline;
+}
+
+/* 🔥 RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+
+    body {
+        padding: 15px;
+    }
+
+    form {
+        width: 100%;
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    .dashboard-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .dashboard-buttons button {
+        width: 100%;
+    }
+
+    #blogs {
+        width: 100%;
+    }
+
+    .blog-card {
+        padding: 12px;
+    }
+
+    .blog-card h3 {
+        font-size: 18px;
+    }
+
+    .blog-card p {
+        font-size: 14px;
+    }
+
+    .blog-actions button {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+}
+
+/* 🔥 EXTRA SMALL DEVICES */
+@media (max-width: 480px) {
+
+    h2 {
+        font-size: 20px;
+    }
+
+    input, textarea {
+        font-size: 14px;
+    }
+
+    button {
+        font-size: 14px;
+    }
 }
